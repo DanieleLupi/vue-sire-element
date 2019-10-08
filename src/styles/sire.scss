@@ -1,0 +1,51 @@
+// Element CSS correction
+.el-checkbox.is-bordered {
+    width: 100%;
+}
+
+.el-form-item {
+    width: 100%;
+}
+
+.el-form-item__label {
+    line-height: 20px;
+}
+
+.el-input-number {
+    width: 100%;
+}
+
+.el-input--suffix .el-input__inner {
+    padding-right: 15px
+}
+
+.el-select {
+    width: 100%;
+}
+
+
+// SIre CSS helper
+.sire-flex-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.sire-flex-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.sire-fill {
+    height: 100%;
+}
+
+.sire-full-extension {
+    height: 100%;
+    width: 100%;
+}
+
+.sire-hidden {
+    display: none;
+}
