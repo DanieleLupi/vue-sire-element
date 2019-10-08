@@ -21,7 +21,7 @@ const baseConfig = {
       css()
     ],
     vue: {
-      css: false,
+      css: true,
       template: {
         isProduction: true,
       },

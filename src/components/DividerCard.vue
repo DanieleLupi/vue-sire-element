@@ -2,7 +2,11 @@
   <div class="si-divider-card">
     <div class="si-divider-card__header">
       <el-divider :content-position="labelPosition">
-        <div class="si-divider-card__title">{{title}}</div>
+        <div class="si-divider-card__title" v-if="$slots.header || title">
+          <slot name="header">
+            <div class="si-divider-card__title">{{title}}</div>
+          </slot>
+        </div>
       </el-divider>
     </div>
     <div class="si-divider-card__body">
@@ -43,4 +47,16 @@ export default {
   flex: 1 1 auto;
   overflow: auto;
 }
+
+.si-divider-card__title .el-checkbox__label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.si-divider-card__title .el-checkbox__inner {
+  /* border: 1px solid black; */
+  border-color: #303133;
+}
+
 </style>

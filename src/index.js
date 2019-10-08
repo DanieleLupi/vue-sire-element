@@ -1,7 +1,10 @@
 import ElementUI from 'element-ui';
-import Flex from '@sidline/vue-flex-box';
 import 'element-ui/lib/theme-chalk/index.css';
+import Flex from '@sidline/vue-flex-box';
+import '@sidline/vue-flex-box/dist/vue-flex-box.css'
+
 import './styles/sire.scss'
+
 import CardFlex from "./components/CardFlex.vue"
 import BasicCard from "./components/BasicCard.vue"
 import DetailCard from "./components/DetailCard.vue"
