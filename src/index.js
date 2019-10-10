@@ -3,6 +3,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import Flex from '@sidline/vue-flex-box';
 import '@sidline/vue-flex-box/dist/vue-flex-box.css'
 
+// import Flex from '../plugins/vue-flex-box';
+// import '../plugins/vue-flex-box/styles/FxItem.scss'
+
 import './styles/sire.scss'
 
 import CardFlex from "./components/CardFlex.vue"

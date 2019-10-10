@@ -1,14 +1,38 @@
+// $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+// @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+// @import "~@fortawesome/fontawesome-free/scss/regular.scss";
+// @import "~@fortawesome/fontawesome-free/scss/brands.scss";
+// @import "~@fortawesome/fontawesome-free/scss/solid.scss";
+// @import "~@fortawesome/fontawesome-free/scss/v4-shims.scss";
+
+i[class^=fa] {
+    margin-right: 5px;
+    width: 24px;
+    text-align: center;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+
 // Element CSS correction
+.el-card {
+    border: none;
+}
+
 .el-checkbox.is-bordered {
     width: 100%;
 }
-
 .el-form-item {
     width: 100%;
+    margin-bottom: 10px;
+}
+.el-form--label-top .el-form-item__label {
+    min-height: 25px;
 }
 
 .el-form-item__label {
-    line-height: 20px;
+    line-height: 15px;
 }
 
 .el-input-number {
@@ -25,27 +49,29 @@
 
 
 // SIre CSS helper
-.sire-flex-column {
+.si-flex-column {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-}
-
-.sire-flex-row {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-}
-
-.sire-fill {
     height: 100%;
 }
 
-.sire-full-extension {
+.si-flex-row {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.si-fill {
+    height: 100%;
+}
+
+.si-full {
     height: 100%;
     width: 100%;
 }
 
-.sire-hidden {
+.si-hidden {
     display: none;
 }

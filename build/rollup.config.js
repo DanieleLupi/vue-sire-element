@@ -6,7 +6,8 @@ import replace from 'rollup-plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
 import scss from 'rollup-plugin-scss'
-import css from 'rollup-plugin-css-only'
+import tildeImporter from 'node-sass-tilde-importer';
+//import css from 'rollup-plugin-css-only'
 
 const argv = minimist(process.argv.slice(2));
 
@@ -18,7 +19,7 @@ const baseConfig = {
         'process.env.NODE_ENV': JSON.stringify('production'),
       }),
       commonjs(),
-      css()
+      //css()
     ],
     vue: {
       css: true,
@@ -42,7 +43,15 @@ const external = [
   'vue',
   'element-ui',
   '@sidline/vue-flex-box',
-  'element-ui/lib/theme-chalk/index.css'
+  '@sidline/vue-flex-box/dist/vue-flex-box.css',
+  'element-ui/lib/theme-chalk/index.css',
+  '@fortawesome/fontawesome',
+  '@fortawesome/fontawesome-free',
+  "@fortawesome/fontawesome-free/scss/fontawesome.scss",
+  "@fortawesome/fontawesome-free/scss/regular.scss",
+  "@fortawesome/fontawesome-free/scss/brands.scss",
+  "@fortawesome/fontawesome-free/scss/solid.scss",
+  "@fortawesome/fontawesome-free/scss/v4-shims.scss"
 ];
 const globals = {
   // Provide global variable names to replace your external imports
@@ -62,7 +71,8 @@ if (!argv.format || argv.format === 'es') {
     },
     plugins: [
       scss({
-        outputStyle: "compressed"
+        outputStyle: "compressed",
+        includePaths: ["node_modules/"]
       }),
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),

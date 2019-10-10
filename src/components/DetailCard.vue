@@ -1,43 +1,41 @@
 <template>
-  <si-card-flex>
-    <div slot="header" class="si-detail-card__header">
+  <si-card-flex :header="header" :fxNoGrow="fxNoGrow" :fxFill="fxFill" :fxParentGutter="fxParentGutter" :fxParentDirection="fxParentDirection">
+    <fx-col slot="header" class="si-detail-card__header">
       <fx-item>
         <span class="si-detail-card__title">
-          {{title}}
-          <slot name="title"></slot>
+          <slot name="title">{{header}}</slot>
         </span>
       </fx-item>
-      <div class="si-detail-card__button">
+      <fx-col class="si-detail-card__button" fxAlign="center" :fxSize="330">
         <el-button
           type="primary"
           style="width:100px"
-          @click="buttonClick(4)"
+          @click="buttonClick(1)"
           :disabled="!allowSave"
         >Salva</el-button>
         <el-button
           type="warning"
           style="width:100px"
-          @click="buttonClick(5)"
+          @click="buttonClick(2)"
           :disabled="!allowCancel"
         >Annulla</el-button>
         <el-button
           type="danger"
           style="width:100px"
-          @click="buttonClick(6)"
+          @click="buttonClick(3)"
           :disabled="!allowDelete"
         >Elimina</el-button>
-      </div>
-    </div>
-    <slot></slot>
+      </fx-col>
+    </fx-col>
+    <fx-row fxFill :fxGutter="fxGutter">
+      <slot/>
+    </fx-row>
   </si-card-flex>
 </template>
 
 <style>
 .si-detail-card__header {
   background-color: #ebf2fa;
-  height: 100%;
-  flex: 1 1 auto;
-  display: flex;
 }
 
 .si-detail-card__title {
@@ -48,16 +46,14 @@
 }
 
 .si-detail-card__button {
-  /* float: right; */
-  flex: 0 0 330px;
-  align-self: center;
+  padding: 0px 15px;
 }
 </style>
 
 <script>
 export default {
   props: {
-    title: {
+    header: {
       default: "",
       type: String
     },
@@ -72,15 +68,20 @@ export default {
     allowDelete: {
       default: true,
       type: Boolean
-    }
+    },
+    fxNoGrow: { default: false, type: Boolean },
+    fxFill: { default: false, type: Boolean },
+    fxGutter: { default: "none", type: String },
+    fxParentGutter: "",
+    fxParentDirection: "",
   },
   methods: {
     buttonClick: function(type) {
-      if (type === 4) {
+      if (type === 1) {
         this.$emit("save");
-      } else if (type === 5) {
+      } else if (type === 2) {
         this.$emit("cancel");
-      } else if (type === 6) {
+      } else if (type === 3) {
         this.$emit("delete");
       }
     }

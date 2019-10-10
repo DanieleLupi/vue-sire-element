@@ -1,13 +1,12 @@
 <template>
-  <si-card-flex>
-    <div slot="header" class="si-detail-card__header">
+  <si-card-flex :header="header" :fxNoGrow="fxNoGrow" :fxFill="fxFill" :fxParentGutter="fxParentGutter" :fxParentDirection="fxParentDirection">
+    <fx-col slot="header" class="si-list-card__header">
       <fx-item>
-        <span class="si-detail-card__title">
-          {{title}}
-          <slot name="title"></slot>
+        <span class="si-list-card__title">
+          <slot name="title">{{header}}</slot>
         </span>
       </fx-item>
-      <div class="si-detail-card__button">
+      <fx-col class="si-list-card__button" fxAlign="center" :fxSize="330">
         <el-button
           type="primary"
           style="width:100px"
@@ -26,41 +25,39 @@
           @click="buttonClick(3)"
           :disabled="!allowDelete"
         >Elimina</el-button>
-      </div>
-    </div>
-    <slot></slot>
+      </fx-col>
+    </fx-col>
+    <slot/>
   </si-card-flex>
 </template>
 
 <style>
-.si-detail-card__header {
+.si-list-card__header {
   background-color: #ebf2fa;
-  height: 100%;
-  flex: 1 1 auto;
-  display: flex;
 }
 
-.si-detail-card__title {
+.si-list-card__title {
   height: 48px;
   font-size: 20px;
   font-size: xx-large;
   margin: 10px 0px 10px 20px;
 }
 
-.si-detail-card__button {
-  /* float: right; */
-  flex: 0 0 330px;
-  align-self: center;
+.si-list-card__button {
+  padding: 0px 15px;
 }
 </style>
 
 <script>
 export default {
   props: {
-    title: {
+    header: {
       default: "",
       type: String
     },
+
+
+
     allowInsert: {
       default: true,
       type: Boolean
@@ -72,7 +69,14 @@ export default {
     allowDelete: {
       default: true,
       type: Boolean
-    }
+    },
+
+
+    fxNoGrow: { default: false, type: Boolean },
+    fxFill: { default: false, type: Boolean },
+    fxGutter: { default: "none", type: String },
+    fxParentGutter: "",
+    fxParentDirection: "",
   },
   methods: {
     buttonClick: function(type) {

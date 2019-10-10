@@ -1,51 +1,60 @@
 <template>
-  <div class="si-divider-card">
-    <div class="si-divider-card__header">
-      <el-divider :content-position="labelPosition">
-        <div class="si-divider-card__title" v-if="$slots.header || title">
-          <slot name="header">
-            <div class="si-divider-card__title">{{title}}</div>
-          </slot>
-        </div>
-      </el-divider>
-    </div>
-    <div class="si-divider-card__body">
-      <slot></slot>
-    </div>
-  </div>
+  <fx-row :fxFill="fxFill">
+    <fx-col fxNoGrow fxAlignItems="center">
+      <fx-item :fxSize="labelPosition == 'left' || $slots.headerLeft ? 30 : 0" name="left">
+        <div class="el-divider el-divider--horizontal" />
+      </fx-item>
+
+      <fx-col fxNoGrow fxNoShrink v-if="$slots.headerLeft" class="si-divider-card__button" name="header-left-text">
+        <slot name="headerLeft" />
+      </fx-col>
+      <fx-item :fxSize="labelPosition == 'left' ? 30 : 0" v-if="$slots.headerLeft"  name="header-left">
+        <div class="el-divider el-divider--horizontal" />
+      </fx-item>
+
+      <fx-item class="si-divider-card__title" fxNoGrow name="title">{{header}}</fx-item>
+
+      <fx-item :fxSize="labelPosition == 'right' ? 30 : 0" v-if="$slots.headerRight" name="header-right">
+        <div class="el-divider el-divider--horizontal" />
+      </fx-item>
+      <fx-col fxNoGrow fxNoShrink v-if="$slots.headerRight" class="si-divider-card__button" name="header-right-text">
+        <slot name="headerRight" />
+      </fx-col>
+
+      <fx-item :fxSize="labelPosition == 'right' || $slots.headerRight ? 30 : 0" name="right">
+        <div class="el-divider el-divider--horizontal" />
+      </fx-item>
+    </fx-col>
+    <fx-row fxFill :fxGutter="fxGutter">
+      <slot />
+    </fx-row>
+  </fx-row>
 </template>
 
 <script>
 export default {
   name: "si-divider-card",
   props: {
-    title: { default: "", type: String },
-    labelPosition: { default: "left", type: String }
+    header: { default: "", type: String },
+    labelPosition: { default: "left", type: String },
+    fxNoGrow: { default: false, type: Boolean },
+    fxFill: { default: false, type: Boolean },
+    fxGutter: { default: "none", type: String },
+    fxParentGutter: "",
+    fxParentDirection: "",
   }
 };
 </script>
 
-<style>
-.si-divider-card {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  height: 100%;
-}
+<style lang="scss">
 .si-divider-card__title {
+  padding: 0 15px;
   font-size: 18px;
   font-weight: 600;
 }
-.si-divider-card__header {
-  display: flex;
-  flex: 0 0 auto;
-}
-.si-divider-card__body {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  flex: 1 1 auto;
-  overflow: auto;
+
+.si-divider-card__button {
+  padding: 0 15px;
 }
 
 .si-divider-card__title .el-checkbox__label {
@@ -58,5 +67,4 @@ export default {
   /* border: 1px solid black; */
   border-color: #303133;
 }
-
 </style>
