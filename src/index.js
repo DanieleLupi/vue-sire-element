@@ -8,21 +8,25 @@ import '@sidline/vue-flex-box/dist/vue-flex-box.css'
 
 import './styles/sire.scss'
 
-import CardFlex from "./components/CardFlex.vue"
-import BasicCard from "./components/BasicCard.vue"
-import DetailCard from "./components/DetailCard.vue"
-import DividerCard from "./components/DividerCard.vue"
-import ListCard from "./components/ListCard.vue"
+import SICardFlex from "./components/SICardFlex.vue"
+import SIBasicCard from "./components/SIBasicCard.vue"
+import SIDetailCard from "./components/SIDetailCard.vue"
+import SIDividerCard from "./components/SIDividerCard.vue"
+import SIListCard from "./components/SIListCard.vue"
+//import TabNavFlex from "./components/TabNavFlex.js"
+//import TabsFlex from "./components/TabsFlex.js"
 
 const SIreElement = {
   install: function (Vue) {
     Vue.use(ElementUI);
     Vue.use(Flex);
-     Vue.component('si-card-flex', CardFlex);
-     Vue.component('si-basic-card', BasicCard);
-     Vue.component('si-detail-card', DetailCard);
-     Vue.component('si-divider-card', DividerCard);
-     Vue.component('si-list-card', ListCard);
+     Vue.component('si-card-flex', SICardFlex);
+     Vue.component('si-basic-card', SIBasicCard);
+     Vue.component('si-detail-card', SIDetailCard);
+     Vue.component('si-divider-card', SIDividerCard);
+     Vue.component('si-list-card', SIListCard);
+     //Vue.component('si-tab-nav-flex', TabNavFlex);
+     //Vue.component('si-tabs-flex', TabsFlex);
   },
   name: 'si-element'
 }

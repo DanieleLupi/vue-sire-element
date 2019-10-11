@@ -16,10 +16,26 @@
             <div slot="header-right">DESTRA</div>
             <div>BODY BASIC CARD</div>
           </si-basic-card>
-          <si-divider-card header="Ciao">
-            <!-- <div slot="headerLeft">SINISTRA</div> -->
-            <div slot="headerRight">DESTRA</div>
-          </si-divider-card>
+          <fx-col fxGutter="large">
+            <si-divider-card header="Ciao1">
+              <div slot="header-left">SINISTRA</div>
+              <div slot="header-right">DESTRA</div>
+            </si-divider-card>
+            <si-divider-card header="Ciao2">
+              <!-- <div slot="header-left">SINISTRA</div> -->
+              <div slot="header-right">DESTRA</div>
+            </si-divider-card>            
+          </fx-col>
+          <!-- <fx-col fxFill>
+            <si-tabs-flex tab-position="top">
+              <el-tab-pane label="Primo">
+                Primo BODY
+              </el-tab-pane>
+              <el-tab-pane label="Secondo">
+                Secondo BODY
+              </el-tab-pane>
+            </si-tabs-flex>
+          </fx-col> -->
         </si-detail-card>
       </fx-row>
     </fx-col>

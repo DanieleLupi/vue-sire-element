@@ -1,5 +1,5 @@
 <template>
-  <si-card-flex :header="header" :fxNoGrow="fxNoGrow" :fxFill="fxFill" :fxParentGutter="fxParentGutter" :fxParentDirection="fxParentDirection">
+  <si-card-flex :header="header" :fxNoGrow="fxNoGrow" :fxFill="fxFill" :fxGutter="fxGutter" :fxParentGutter="fxParentGutter" :fxParentDirection="fxParentDirection">
     <fx-col slot="header" class="si-list-card__header">
       <fx-item>
         <span class="si-list-card__title">

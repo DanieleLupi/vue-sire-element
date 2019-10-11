@@ -1,5 +1,5 @@
 <template>
-  <si-card-flex :fxNoGrow="!fxGrow" :fxFill="fxFill" :header="header" :fxParentGutter="fxParentGutter" :fxParentDirection="fxParentDirection">
+  <si-card-flex :fxNoGrow="!fxGrow" :fxFill="fxFill" :header="header" :fxGutter="fxGutter" :fxParentGutter="fxParentGutter" :fxParentDirection="fxParentDirection">
     <fx-col slot="header" class="si-basic-card__header" fxGutter="small">
       <fx-item fxNoGrow fxAlign="center" class="si-basic-card__button">
         <slot name="header-left"></slot>
@@ -28,6 +28,7 @@ export default {
     header: { default: "", type: String },
     fxFill: { default: false, type: Boolean },
     fxGrow: { default: false, type: Boolean },
+    fxGutter: { default: "none", type: String },
     fxParentGutter: "",
     fxParentDirection: "",
   }
