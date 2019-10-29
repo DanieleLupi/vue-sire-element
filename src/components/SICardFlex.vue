@@ -1,7 +1,4 @@
 <template>
-  <!-- <fx-col class="el-card si-flex-column" 
-    :class="shadow ? 'is-' + shadow + '-shadow' : 'is-always-shadow'"
-  > -->
   <fx-row class="el-card" :class="shadow ? 'is-' + shadow + '-shadow' : 'is-always-shadow'" fxNoShrink :fxNoGrow="fxNoGrow" :fxFill="fxFill" :fxParentGutter="fxParentGutter" :fxParentDirection="fxParentDirection">
     <fx-item class="el-card__header si-card__header" v-if="$slots.header || header" fxNoGrow>
       <slot name="header">{{ header }}</slot>

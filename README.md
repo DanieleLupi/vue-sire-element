@@ -50,6 +50,7 @@ Vue.use(SIreElement);
 | `fxNoGrow` | Boolean | false | |
 | `header` | String | null | |
 | `shadow` | String | null | "always", "hover", "never" |
+| `labelPosition` | String | "left" | "left", "center", "right" |
 
 #### slots
 | Name | Description |
@@ -71,6 +72,8 @@ Vue.use(SIreElement);
 | `fxNoGrow` | Boolean | false | |
 | `header` | String | null | |
 | `labelPosition` | String | "left" | "left", "center", "right" |
+| `condensedLeft` | Boolean | false | |
+| `condensedRight` | Boolean | false | |
 
 #### slots
 | Name | Description |
@@ -132,6 +135,6 @@ Vue.use(SIreElement);
 #### events
 | Name | Description |
 | :--- | :--- |
-| `delete` | when cancel battun clicked |
-| `insert` | when delete battun clicked |
-| `update` | when save battun clicked |
+| `delete` | when cancel button clicked |
+| `insert` | when delete button clicked |
+| `update` | when save button clicked |

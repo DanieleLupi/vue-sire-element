@@ -4,7 +4,7 @@
       <fx-item fxNoGrow fxAlign="center" class="si-basic-card__button">
         <slot name="header-left"></slot>
       </fx-item>
-      <fx-item>
+      <fx-item :fxJustify="align">
         <slot name="header-title">
           <span class="si-basic-card__title">
             <slot name="title">{{header}}</slot>
@@ -25,12 +25,23 @@
 export default {
   name: "si-basic-card",
   props: {
+    labelPosition: { default: "left", type: String },
     header: { default: "", type: String },
     fxFill: { default: false, type: Boolean },
     fxGrow: { default: false, type: Boolean },
     fxGutter: { default: "none", type: String },
     fxParentGutter: "",
     fxParentDirection: "",
+  },
+  computed: {
+    align: function() {
+      if(this.labelPosition == "left")
+        return "start";
+      else if(this.labelPosition == "right")
+        return "end";
+      else
+        return "center";
+    }
   }
 };
 </script>
